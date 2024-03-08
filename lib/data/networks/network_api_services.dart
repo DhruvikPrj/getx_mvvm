@@ -8,7 +8,6 @@ import 'package:getx_mvvm/data/networks/base_api_services.dart';
 import 'package:http/http.dart' as http;
 
 class NetWorkApiServices extends BaseApiServices {
-  @override
   dynamic responseJson;
 
   @override
