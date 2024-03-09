@@ -6,6 +6,8 @@ import 'package:getx_mvvm/utils/utils.dart';
 import 'package:getx_mvvm/view_models/login_view_controller.dart';
 
 class LoginView extends StatefulWidget {
+  const LoginView({super.key});
+
   @override
   State<LoginView> createState() => _LoginViewState();
 }
@@ -18,9 +20,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
+      appBar: AppBar(),
       body: Center(
         child: SingleChildScrollView(
           // Allow scrolling if content overflows
@@ -30,7 +30,10 @@ class _LoginViewState extends State<LoginView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const FlutterLogo(size: 100.0), // Display Flutter logo
+                Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCbntSK_9_6zYYw8l4OuHN1nTR4aJs-UziDg&usqp=CAU',
+                  width: 200,
+                ), // Display Flutter logo
                 const SizedBox(height: 20.0),
                 TextFormField(
                   controller: loginViewController.emailcontroller.value,
@@ -40,6 +43,7 @@ class _LoginViewState extends State<LoginView> {
                       Utils.snackbar("Warning", "Please enter email",
                           Appcolor.warningTitle);
                     }
+                    return;
                   },
                   onFieldSubmitted: (value) {
                     Utils.fieldFocusChange(
@@ -63,6 +67,7 @@ class _LoginViewState extends State<LoginView> {
                       Utils.snackbar("Warning", "Please enter your password",
                           Appcolor.warningTitle);
                     }
+                    return;
                   },
                   obscureText: true, // Hide password input
                   decoration: InputDecoration(
@@ -73,15 +78,20 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
                 const SizedBox(height: 20.0),
-                RoundButton(
-                  loading: false,
-                  title: "Login",
-                  onPress: () {
-                    if (_formKey.currentState!.validate()) {}
-                  },
-                  textColor: Colors.white,
-                  buttonColor: Colors.blue,
-                  width: double.infinity,
+                Obx(
+                  () => RoundButton(
+                    loading: loginViewController.loading.value,
+                    title: "Login",
+                    onPress: () {
+                      print("Login Button Pressed");
+                      if (_formKey.currentState!.validate()) {
+                        loginViewController.loginApi();
+                      }
+                    },
+                    textColor: Colors.white,
+                    buttonColor: Colors.blue,
+                    width: double.infinity,
+                  ),
                 ),
                 const SizedBox(height: 10.0),
                 RoundButton(

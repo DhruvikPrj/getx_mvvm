@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm/res/components/general_exceptions.dart';
 import 'package:getx_mvvm/res/components/internet_exception.dart';
 
 class HomeSreen extends StatefulWidget {

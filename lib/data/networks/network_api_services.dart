@@ -27,6 +27,7 @@ class NetWorkApiServices extends BaseApiServices {
     return responseJson;
   }
 
+  @override
   Future<dynamic> postApi(var data, String url) async {
     if (kDebugMode) {
       print(url);
@@ -36,7 +37,7 @@ class NetWorkApiServices extends BaseApiServices {
       final response = await http
           .post(
             Uri.parse(url),
-            body: jsonEncode(data),
+            body: data,
           )
           .timeout(const Duration(seconds: 10));
       responseJson = returnResponse(response);
@@ -54,6 +55,8 @@ class NetWorkApiServices extends BaseApiServices {
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
       case 400:
+        throw InvalidUrlException('');
+      case 401:
         throw InvalidUrlException('');
       default:
         throw FetchDataException(

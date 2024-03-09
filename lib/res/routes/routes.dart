@@ -9,7 +9,7 @@ class AppRoutes {
   static appRoutes() => [
         GetPage(
           page: () => const SplashScreen2(),
-          name: RouteName.splashScreen,
+          name: RouteName.splashScreen2,
           transition: Transition.downToUp,
           transitionDuration: const Duration(seconds: 2),
         ),
@@ -20,7 +20,7 @@ class AppRoutes {
           transitionDuration: const Duration(seconds: 1),
         ),
         GetPage(
-          page: () => LoginView(),
+          page: () => const LoginView(),
           name: RouteName.loginView,
           transition: Transition.downToUp,
           transitionDuration: const Duration(seconds: 1),

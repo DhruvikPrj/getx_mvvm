@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 //import 'package:getx_mvvm/res/components/internet_exception.dart';
 import 'package:getx_mvvm/res/getx_localization/languages.dart';
 import 'package:getx_mvvm/res/routes/routes.dart';
-import 'package:getx_mvvm/views/splash_screen.dart';
+// import 'package:getx_mvvm/views/splash_screen.dart';
+import 'package:getx_mvvm/views/splash_screen2.dart';
 // import 'package:getx_mvvm/views/splash_screen2.dart';
 //import 'package:getx_mvvm/views/splash_screen.dart';
 
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       fallbackLocale: const Locale('hi', 'IN'),
       getPages: AppRoutes.appRoutes(),
       home: const Scaffold(
-        body: SplashScreen(),
+        body: SplashScreen2(),
         // body: InternetExceptionWidget(
         //   onpress: () {},
         // ),
