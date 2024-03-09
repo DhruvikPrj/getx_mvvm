@@ -40,7 +40,9 @@ class _LoginViewState extends State<LoginView> {
                   focusNode: loginViewController.emailFocusNode.value,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      Utils.snackbar("Warning", "Please enter email",
+                      Utils.snackbar(
+                          "Warning",
+                          "Please enter email and password",
                           Appcolor.warningTitle);
                     }
                     return;

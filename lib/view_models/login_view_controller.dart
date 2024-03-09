@@ -29,7 +29,8 @@ class LoginViewController extends GetxController {
     }).onError((error, stackTrace) {
       loading.value = false;
       // print(error.toString());
-      return Utils.snackbar("Error", error.toString(), Appcolor.warningTitle);
+      return Utils.snackbar("Login Failed",
+          "Please Login with valid credentials", Appcolor.warningTitle);
     });
   }
 }

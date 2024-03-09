@@ -46,6 +46,7 @@ class NetWorkApiServices extends BaseApiServices {
     } on TimeoutException {
       throw RequestTimeOut('');
     }
+    print(responseJson)d errors sho
     return responseJson;
   }
 
@@ -55,8 +56,6 @@ class NetWorkApiServices extends BaseApiServices {
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
       case 400:
-        throw InvalidUrlException('');
-      case 401:
         throw InvalidUrlException('');
       default:
         throw FetchDataException(
