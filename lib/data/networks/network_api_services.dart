@@ -46,7 +46,7 @@ class NetWorkApiServices extends BaseApiServices {
     } on TimeoutException {
       throw RequestTimeOut('');
     }
-    print(responseJson)d errors sho
+    print(responseJson);
     return responseJson;
   }
 
