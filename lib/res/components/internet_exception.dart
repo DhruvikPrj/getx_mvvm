@@ -17,18 +17,18 @@ class _InternetExceptionWidgetState extends State<InternetExceptionWidget> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () => Get.back(),
-            icon: const Icon(
-              Icons.arrow_back_ios_rounded,
-            ),
-            alignment: Alignment.topLeft,
-          )
-        ],
-      ),
+      backgroundColor: Theme.of(context).primaryColorLight,
+      // appBar: AppBar(
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () => Get.back(),
+      //       icon: const Icon(
+      //         Icons.arrow_back_ios_rounded,
+      //       ),
+      //       alignment: Alignment.topLeft,
+      //     )
+      //   ],
+      // ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

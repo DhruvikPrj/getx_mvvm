@@ -26,12 +26,16 @@ class Utils {
     );
   }
 
-  static snackbar(String title, String message) {
-    Get.showSnackbar(
-      GetSnackBar(
-        titleText: Text(title),
-        messageText: Text(message),
-      ),
-    );
+  static snackbar(
+    String title,
+    String message,
+    Color titleColor,
+  ) {
+    return Get.snackbar(title, message,
+        colorText: titleColor,
+        barBlur: 15,
+        borderRadius: 10,
+        animationDuration: const Duration(milliseconds: 1500),
+        forwardAnimationCurve: const FlippedCurve(Curves.bounceOut));
   }
 }

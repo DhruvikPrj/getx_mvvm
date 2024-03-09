@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm/res/components/internet_exception.dart';
+//import 'package:getx_mvvm/res/components/internet_exception.dart';
 import 'package:getx_mvvm/res/getx_localization/languages.dart';
 import 'package:getx_mvvm/res/routes/routes.dart';
 import 'package:getx_mvvm/views/splash_screen.dart';
+// import 'package:getx_mvvm/views/splash_screen2.dart';
 //import 'package:getx_mvvm/views/splash_screen.dart';
 
 void main() {
