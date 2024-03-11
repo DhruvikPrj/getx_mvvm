@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:getx_mvvm/res/colors/app_colors.dart';
 import 'package:getx_mvvm/res/components/round_button.dart';
 import 'package:getx_mvvm/utils/utils.dart';
-import 'package:getx_mvvm/view_models/login_view_controller.dart';
+import 'package:getx_mvvm/view_models/controller/login/login_view_controller.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -39,8 +39,8 @@ class _LoginViewState extends State<LoginView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCbntSK_9_6zYYw8l4OuHN1nTR4aJs-UziDg&usqp=CAU',
+                Image.asset(
+                  "images/byptLogo.png",
                   width: 200,
                 ), // Display Flutter logo
                 const SizedBox(height: 20.0),
