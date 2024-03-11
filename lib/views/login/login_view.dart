@@ -18,9 +18,18 @@ class _LoginViewState extends State<LoginView> {
   final _formKey = GlobalKey<FormState>();
   //
   @override
+  void dispose() {
+    loginViewController.dispose();
+    super.dispose();
+  }
+
+  //
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: SingleChildScrollView(
           // Allow scrolling if content overflows
@@ -40,10 +49,8 @@ class _LoginViewState extends State<LoginView> {
                   focusNode: loginViewController.emailFocusNode.value,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      Utils.snackbar(
-                          "Warning",
-                          "Please enter email and password",
-                          Appcolor.warningTitle);
+                      const Text("Please enter email and password",
+                          style: TextStyle(color: Appcolor.warningTitle));
                     }
                     return;
                   },
@@ -66,8 +73,8 @@ class _LoginViewState extends State<LoginView> {
                   focusNode: loginViewController.passwordFocusNode.value,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      Utils.snackbar("Warning", "Please enter your password",
-                          Appcolor.warningTitle);
+                      const Text("Please enter your password",
+                          style: TextStyle(color: Appcolor.warningTitle));
                     }
                     return;
                   },
@@ -82,10 +89,11 @@ class _LoginViewState extends State<LoginView> {
                 const SizedBox(height: 20.0),
                 Obx(
                   () => RoundButton(
+                    height: 40,
                     loading: loginViewController.loading.value,
                     title: "Login",
                     onPress: () {
-                      print("Login Button Pressed");
+                      //print("Login Button Pressed");
                       if (_formKey.currentState!.validate()) {
                         loginViewController.loginApi();
                       }

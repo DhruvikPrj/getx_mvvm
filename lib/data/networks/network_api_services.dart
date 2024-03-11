@@ -56,10 +56,26 @@ class NetWorkApiServices extends BaseApiServices {
         dynamic responseJson = jsonDecode(response.body);
         return responseJson;
       case 400:
-        throw InvalidUrlException('');
+        dynamic responseJson = jsonDecode(response.body);
+        return responseJson;
+      case 401:
+        dynamic responseJson = jsonDecode(response.body);
+        return responseJson;
+      case 402:
+        dynamic responseJson = jsonDecode(response.body);
+        return responseJson;
+      case 403:
+        dynamic responseJson = jsonDecode(response.body);
+        return responseJson;
+      case 404:
+        dynamic responseJson = jsonDecode(response.body);
+        return responseJson;
+
       default:
         throw FetchDataException(
             "Error while communication with server ${response.statusCode}");
     }
   }
+//     return responseJson;
+//   }
 }

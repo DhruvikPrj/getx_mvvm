@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_mvvm/data/repository/login_repository/login_repository.dart';
 import 'package:getx_mvvm/res/colors/app_colors.dart';
+// import 'package:getx_mvvm/res/routes/routes.dart';
+import 'package:getx_mvvm/res/routes/routes_name.dart';
 import 'package:getx_mvvm/utils/utils.dart';
 
 class LoginViewController extends GetxController {
@@ -24,13 +26,24 @@ class LoginViewController extends GetxController {
 
     _api.loginApi(data).then((value) {
       loading.value = false;
-      Utils.snackbar(
-          "Successful", "You are login Successfully", Appcolor.successTitle);
+      if (value['message'] == 'password is incorrect' ||
+          value['message'] == 'User not exits!') {
+        //print(value);
+        Utils.snackbarView(
+            "Login Failed", value['message'], Appcolor.warningTitle);
+      } else {
+        //print(value);
+        Utils.snackbarView(
+            "Successful", value['message'], Appcolor.successTitle);
+        Get.toNamed(RouteName.homeScreen);
+      }
     }).onError((error, stackTrace) {
       loading.value = false;
-      // print(error.toString());
-      return Utils.snackbar("Login Failed",
-          "Please Login with valid credentials", Appcolor.warningTitle);
+      //print(error.toString());
+      // Text(error.toString());
+      print(error.toString());
+      return Utils.snackbarView(
+          "Login Failed", error.toString(), Appcolor.warningTitle);
     });
   }
 }

@@ -26,7 +26,7 @@ class Utils {
   //   );
   // }
 
-  static snackbar(
+  static snackbarView(
     String title,
     String message,
     Color titleColor,
